@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css2?family=Redressed&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Redressed", cursive;
+}
+
+body {
+  overflow: hidden;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  position: relative;
+  background: url('back.jpg') center/cover no-repeat;
+}
+
+h2 {
+  position: absolute;
+  font-size: 7vw;
+  color: white;
+  text-align: center;
+  line-height: 2em;
+  z-index: 100;
+  transform: skewY(-10deg);
+  text-shadow: 1px 1px 0 gray, 2px 2px 0 gray, 3px 3px 0 gray, 4px 4px 0 gray,
+    5px 5px 0 gray, 6px 6px 0 gray, 7px 7px 0 gray, 8px 8px 0 gray,
+    9px 9px 0 gray, 20px 20px 0 rgba(0, 0, 0, 0.3);
+  animation: animate 3s ease-in-out infinite;
+}
+
+h2 span {
+  font-weight: 750;
+  font-size: 3em;
+  text-shadow: 1px 1px 0 gray, 2px 2px 0 gray, 3px 3px 0 gray, 4px 4px 0 gray,
+    5px 5px 0 gray, 10px 10px 0 rgba(0, 0, 0, 0.3);
+}
+
+@keyframes animate {
+  0%, 100% {
+    transform: skewY(-10deg) translate(0, -20px);
+  }
+  50% {
+    transform: skewY(-10deg) translate(0, 20px);
+  }
+}
+
+/* Firework Effects */
+.firework {
+  position: absolute;
+  opacity: 0;
+  animation: show_fireworks 2s ease-in-out forwards;
+}
+
+@keyframes show_fireworks {
+  0% {
+    opacity: 0;
+    transform: scale(0) rotate(0deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+/* Sparkling Crackers */
+.cracker {
+  position: absolute;
+  width: 4px;
+  height: 80px;
+  background-color: gold;
+  animation: shoot 2s ease-in-out forwards;
+}
+
+@keyframes shoot {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(calc(100px * var(--dir-x)), calc(100px * var(--dir-y)));
+    opacity: 0;
+  }
+}
+
+/* Direction of the crackers */
+.cracker:nth-child(1) { --dir-x: 1; --dir-y: -1; }
+.cracker:nth-child(2) { --dir-x: -1; --dir-y: -1; }
+.cracker:nth-child(3) { --dir-x: 1; --dir-y: 1; }
+.cracker:nth-child(4) { --dir-x: -1; --dir-y: 1; }
+
+@keyframes stars {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Create stars */
+i {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px white, 0 0 20px white, 0 0 30px white, 0 0 40px white;
+  animation: stars linear infinite;
+}
