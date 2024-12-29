@@ -21,9 +21,7 @@ function shine() {
       i++;
   
       // Remove the star after the animation ends
-      setTimeout(() => {
-        star.remove();
-      }, (2 + duration) * 1000);
+     
     }
   }
   
